@@ -1,18 +1,18 @@
 import React from 'react';
 import {View, SectionList, Text} from 'react-native';
-
-const DATA = [
-  {
-    title: 'TO-DO',
-    data: ['make the bed', 'cook the dinner', 'walk the dog'],
-  },
-  {
-    title: 'Main dishes',
-    data: ['Pizza', 'Burger', 'Risotto'],
-  },
-];
+import InputField from '../InputField/InputField';
+import ListItemsHooks from './ListItemsHooks';
 
 function ListItems(): JSX.Element {
+  const {taskList, populateTaskList} = ListItemsHooks();
+
+  const DATA = [
+    {
+      title: 'TO-DO',
+      data: taskList,
+    },
+  ];
+
   return (
     <View
       style={{
@@ -24,11 +24,7 @@ function ListItems(): JSX.Element {
       <SectionList
         sections={DATA}
         keyExtractor={(item, index) => item + index}
-        renderItem={({item}) => (
-          <View style={{padding: 10, borderColor: 'black', borderWidth: 1}}>
-            <Text style={{color: 'black'}}>{item}</Text>
-          </View>
-        )}
+        renderItem={() => <InputField populateTaskList={populateTaskList} />}
         renderSectionHeader={({section: {title}}) => (
           <Text style={{color: 'blue', fontSize: 16}}>{title}</Text>
         )}
