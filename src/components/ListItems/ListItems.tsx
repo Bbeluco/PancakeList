@@ -24,7 +24,12 @@ function ListItems(): JSX.Element {
       <SectionList
         sections={DATA}
         keyExtractor={(item, index) => item + index}
-        renderItem={() => <InputField populateTaskList={populateTaskList} />}
+        renderItem={renderedItem => (
+          <InputField
+            populateTaskList={populateTaskList}
+            indexItemList={renderedItem.index}
+          />
+        )}
         renderSectionHeader={({section: {title}}) => (
           <Text style={{color: 'blue', fontSize: 16}}>{title}</Text>
         )}

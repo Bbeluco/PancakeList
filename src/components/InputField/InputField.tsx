@@ -2,7 +2,8 @@ import React from 'react';
 import {TextInput, View} from 'react-native';
 
 interface InputFieldProps {
-  populateTaskList: (text: string) => void;
+  populateTaskList: (text: string, index: number) => void;
+  indexItemList: number;
 }
 
 function InputField(props: InputFieldProps): JSX.Element {
@@ -10,17 +11,14 @@ function InputField(props: InputFieldProps): JSX.Element {
     <View style={{padding: 1}}>
       <TextInput
         style={{borderWidth: 1}}
-        onChangeText={newTask => onChangeText(props.populateTaskList, newTask)}
+        onSubmitEditing={submitAction =>
+          props.populateTaskList(
+            submitAction.nativeEvent.text,
+            props.indexItemList,
+          )
+        }
       />
     </View>
   );
 }
-
-function onChangeText(
-  populateTaskList: (text: string) => void,
-  newTask: string,
-): void {
-  populateTaskList(newTask);
-}
-
 export default InputField;
