@@ -1,15 +1,20 @@
-import {useState} from 'react';
+import {useEffect} from 'react';
+import {MMKVLoader, useMMKVStorage} from 'react-native-mmkv-storage';
+
+const MMKV = new MMKVLoader().initialize();
 
 function ListItemsHooks() {
-  const [taskList, setTaskList] = useState(['']);
+  const [taskList, setTaskList] = useMMKVStorage('lists', MMKV, ['']);
 
-  function populateTaskList(newTask: string, indexItemList: number): void {
-    if (indexItemList === taskList.length - 1) {
-      setTaskList([...taskList, newTask]);
+  useEffect(() => {
+    console.log(taskList);
+  }, [taskList]);
+
+  function populateTaskList(newTask: string, indexItemList: number) {
+    if (indexItemList === 0 && taskList.length === 1) {
+      setTaskList([newTask]);
     } else {
-      //TODO: The current array taskList starts with [""] object, this is why I added indexItemList + 1 to edit
-      //I belive it is convenient to correct this point, so the application counts correctly
-      taskList[indexItemList + 1] = newTask;
+      taskList[indexItemList] = newTask;
       setTaskList([...taskList]);
     }
   }
