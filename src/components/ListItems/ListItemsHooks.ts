@@ -11,12 +11,8 @@ function ListItemsHooks() {
   }, [taskList]);
 
   function populateTaskList(newTask: string, indexItemList: number) {
-    if (indexItemList === 0 && taskList.length === 1) {
-      setTaskList([newTask]);
-    } else {
-      taskList[indexItemList] = newTask;
-      setTaskList([...taskList]);
-    }
+    taskList[indexItemList] = newTask;
+    setTaskList([...taskList]);
 
     if (indexItemList === taskList.length - 1) {
       setTaskList([...taskList, '']);
