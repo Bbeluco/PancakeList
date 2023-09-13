@@ -13,11 +13,10 @@ function InputField(props: InputFieldProps): JSX.Element {
       <TextInput
         style={{borderWidth: 1, width: '90%'}}
         onSubmitEditing={submitAction =>
-          // props.populateTaskList(
-          //   submitAction.nativeEvent.text,
-          //   props.indexItemList,
-          // )
-          console.log(submitAction.target)
+          props.populateTaskList(
+            submitAction.nativeEvent.text,
+            props.indexItemList,
+          )
         }
       />
       <Counter />
