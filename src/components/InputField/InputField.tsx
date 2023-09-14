@@ -5,6 +5,7 @@ import Counter from '../counter/Counter';
 interface InputFieldProps {
   populateTaskList: (text: string, index: number) => void;
   indexItemList: number;
+  userText: string;
 }
 
 function InputField(props: InputFieldProps): JSX.Element {
@@ -18,6 +19,8 @@ function InputField(props: InputFieldProps): JSX.Element {
             props.indexItemList,
           )
         }
+        editable={true}
+        defaultValue={props.userText}
       />
       <Counter />
     </View>

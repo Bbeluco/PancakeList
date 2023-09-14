@@ -28,6 +28,7 @@ function ListItems(): JSX.Element {
           <InputField
             populateTaskList={populateTaskList}
             indexItemList={renderedItem.index}
+            userText={renderedItem.item}
           />
         )}
         renderSectionHeader={({section: {title}}) => (
