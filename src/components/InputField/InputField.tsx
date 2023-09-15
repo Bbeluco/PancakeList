@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput, View} from 'react-native';
+import {TextInput, TouchableOpacity, View} from 'react-native';
 import Counter from '../counter/Counter';
 
 interface InputFieldProps {
@@ -10,9 +10,12 @@ interface InputFieldProps {
 
 function InputField(props: InputFieldProps): JSX.Element {
   return (
-    <View style={{padding: 1, flexDirection: 'row'}}>
+    <TouchableOpacity
+      style={{padding: 1, flexDirection: 'row'}}
+      onPress={() => console.log('apertado')}>
       <TextInput
-        style={{borderWidth: 1, width: '90%'}}
+        multiline={true}
+        style={{borderWidth: 1, width: '80%'}}
         onSubmitEditing={submitAction =>
           props.populateTaskList(
             submitAction.nativeEvent.text,
@@ -23,7 +26,7 @@ function InputField(props: InputFieldProps): JSX.Element {
         defaultValue={props.userText}
       />
       <Counter />
-    </View>
+    </TouchableOpacity>
   );
 }
 export default InputField;
