@@ -1,21 +1,20 @@
 import React from 'react';
 import {TextInput, TouchableOpacity, View} from 'react-native';
 import Counter from '../counter/Counter';
+import DeleteItem from '../DeleteItem/DeleteItem';
 
 interface InputFieldProps {
   populateTaskList: (text: string, index: number) => void;
+  removeItemFromList: (index: number) => void;
   indexItemList: number;
   userText: string;
 }
 
 function InputField(props: InputFieldProps): JSX.Element {
   return (
-    <TouchableOpacity
-      style={{padding: 1, flexDirection: 'row'}}
-      onPress={() => console.log('apertado')}>
+    <View style={{padding: 1, flexDirection: 'row'}}>
       <TextInput
-        multiline={true}
-        style={{borderWidth: 1, width: '80%'}}
+        style={{borderWidth: 1, width: '85%'}}
         onSubmitEditing={submitAction =>
           props.populateTaskList(
             submitAction.nativeEvent.text,
@@ -26,7 +25,11 @@ function InputField(props: InputFieldProps): JSX.Element {
         defaultValue={props.userText}
       />
       <Counter />
-    </TouchableOpacity>
+      <DeleteItem
+        indexItemList={props.indexItemList}
+        removeItemFromList={props.removeItemFromList}
+      />
+    </View>
   );
 }
 export default InputField;

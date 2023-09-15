@@ -4,7 +4,7 @@ import InputField from '../InputField/InputField';
 import ListItemsHooks from './ListItemsHooks';
 
 function ListItems(): JSX.Element {
-  const {taskList, populateTaskList} = ListItemsHooks();
+  const {taskList, populateTaskList, removeItemFromList} = ListItemsHooks();
 
   const DATA = [
     {
@@ -27,6 +27,7 @@ function ListItems(): JSX.Element {
         renderItem={renderedItem => (
           <InputField
             populateTaskList={populateTaskList}
+            removeItemFromList={removeItemFromList}
             indexItemList={renderedItem.index}
             userText={renderedItem.item}
           />

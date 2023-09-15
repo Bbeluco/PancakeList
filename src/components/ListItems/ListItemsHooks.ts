@@ -14,7 +14,12 @@ function ListItemsHooks() {
     }
   }
 
-  return {taskList, populateTaskList};
+  function removeItemFromList(indexItemList: number): void {
+    taskList.splice(indexItemList, 1);
+    setTaskList([...taskList]);
+  }
+
+  return {taskList, populateTaskList, removeItemFromList};
 }
 
 export default ListItemsHooks;
