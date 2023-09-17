@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.72.4",
+    "react-native-document-picker": "^9.0.1",
     "react-native-mmkv-storage": "^0.9.1"
   },
   "devDependencies": {
