@@ -8,7 +8,7 @@ function ListItems(): JSX.Element {
 
   const DATA = [
     {
-      title: 'TO-DO',
+      title: '',
       data: taskList,
     },
   ];

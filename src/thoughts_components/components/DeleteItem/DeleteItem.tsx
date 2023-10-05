@@ -11,13 +11,13 @@ function DeleteItem(props: InputFieldProps): JSX.Element {
     <View
       style={{
         justifyContent: 'center',
-        borderColor: 'green',
         borderWidth: 1,
+        borderColor: '#16369E',
       }}>
       <TouchableOpacity
         onPress={() => props.removeItemFromList(props.indexItemList)}
-        style={{justifyContent: 'center'}}>
-        <Text style={{fontSize: 20}}>X</Text>
+        style={{justifyContent: 'center', padding: '8%'}}>
+        <Text style={{fontSize: 20, color: 'white'}}>X</Text>
       </TouchableOpacity>
     </View>
   );

@@ -9,21 +9,21 @@ function Counter(): JSX.Element {
     <View
       style={{
         flexDirection: 'row-reverse',
-        borderColor: 'red',
         borderWidth: 1,
+        borderColor: '#16369E',
       }}>
-      <TouchableOpacity
-        onPress={() => updateCount('sum')}
-        style={{justifyContent: 'center'}}>
-        <Text style={{fontSize: 20}}>+</Text>
-      </TouchableOpacity>
-      <View style={{justifyContent: 'center'}}>
-        <Text style={{fontSize: 16}}>{count}</Text>
-      </View>
       <TouchableOpacity
         onPress={() => updateCount('subtraction')}
         style={{justifyContent: 'center'}}>
-        <Text style={{fontSize: 20}}>-</Text>
+        <Text style={{fontSize: 20, color: 'white'}}>-</Text>
+      </TouchableOpacity>
+      <View style={{justifyContent: 'center'}}>
+        <Text style={{fontSize: 16, color: 'white'}}>{count}</Text>
+      </View>
+      <TouchableOpacity
+        onPress={() => updateCount('sum')}
+        style={{justifyContent: 'center'}}>
+        <Text style={{fontSize: 20, color: 'white'}}>+</Text>
       </TouchableOpacity>
     </View>
   );

@@ -14,7 +14,12 @@ function InputField(props: InputFieldProps): JSX.Element {
   return (
     <View style={{padding: 1, flexDirection: 'row'}}>
       <TextInput
-        style={{borderWidth: 1, width: '85%'}}
+        style={{
+          borderWidth: 1,
+          width: '85%',
+          backgroundColor: '#16369E',
+          color: 'white',
+        }}
         onSubmitEditing={submitAction =>
           props.populateTaskList(
             submitAction.nativeEvent.text,
