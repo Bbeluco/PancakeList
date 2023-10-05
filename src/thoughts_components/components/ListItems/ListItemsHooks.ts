@@ -6,6 +6,10 @@ function ListItemsHooks() {
   const [taskList, setTaskList] = useMMKVStorage('lists', MMKV, ['']);
 
   function populateTaskList(newTask: string, indexItemList: number) {
+    console.log(newTask);
+    if (newTask === '') {
+      return;
+    }
     taskList[indexItemList] = newTask;
     setTaskList([...taskList]);
 
