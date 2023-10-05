@@ -36,6 +36,7 @@ function ListItems(): JSX.Element {
           <Text style={{color: 'blue', fontSize: 16}}>{title}</Text>
         )}
       />
+      <View style={{height: 100}} />
     </View>
   );
 }
