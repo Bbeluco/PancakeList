@@ -6,7 +6,6 @@ function ListItemsHooks() {
   const [taskList, setTaskList] = useMMKVStorage('lists', MMKV, ['']);
 
   function populateTaskList(newTask: string, indexItemList: number) {
-    console.log(newTask);
     if (newTask === '') {
       return;
     }
@@ -19,6 +18,9 @@ function ListItemsHooks() {
   }
 
   function removeItemFromList(indexItemList: number): void {
+    if (taskList[indexItemList] === '') {
+      return;
+    }
     taskList.splice(indexItemList, 1);
     setTaskList([...taskList]);
   }
